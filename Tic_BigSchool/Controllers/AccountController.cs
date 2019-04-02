@@ -12,6 +12,7 @@ using Tic_BigSchool.Models;
 
 namespace Tic_BigSchool.Controllers
 {
+    //test Github
     [Authorize]
     public class AccountController : Controller
     {
