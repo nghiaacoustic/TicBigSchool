@@ -20,5 +20,6 @@ namespace BigSchool.Models
         public CateGory Category { get; set; }
         [Required]
         public byte CategoryId { get; set; }
+      //  public int UserId { get; set; }
     }
 }

@@ -1,9 +1,11 @@
-﻿using System;
+﻿using BigSchool.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Tic_BigSchool.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Tic_BigSchool.Controllers
 {
@@ -14,14 +16,27 @@ namespace Tic_BigSchool.Controllers
         {
             _dbContext = new ApplicationDbContext();
         }
+
         // GET: Courses
-        public ActionResult Create()
+        [Authorize]
+        [HttpPost]
+        public ActionResult Create(CourseViewModels viewModels)
         {
-            var viewModel = new CourseViewModels
+            if(!ModelState.IsValid)
             {
-                Categories = _dbContext.CateGories.ToList()
+                viewModels.Categories = _dbContext.CateGories.ToList();
+                return View("Create", viewModels);
+            }
+            var course = new Course
+            {
+                LecturerId=User.Identity.GetUserId(),
+                DateTime=viewModels.GetDateTime(),
+                CategoryId=viewModels.Category,
+                Place=viewModels.Place
             };
-            return View(viewModel);
+            _dbContext.Courses.Add(course);
+            _dbContext.SaveChanges();
+            return RedirectToAction("Index","Home");
         }
     }
 }
