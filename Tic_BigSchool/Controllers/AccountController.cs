@@ -14,6 +14,7 @@ namespace Tic_BigSchool.Controllers
 {
     //test Github
     //03.04
+    //Git
     [Authorize]
     public class AccountController : Controller
     {
