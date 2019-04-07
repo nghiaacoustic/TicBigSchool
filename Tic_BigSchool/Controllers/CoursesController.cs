@@ -16,10 +16,20 @@ namespace Tic_BigSchool.Controllers
         {
             _dbContext = new ApplicationDbContext();
         }
+        [Authorize]
+        public ActionResult Create()
+        {
+            var viewModel = new CourseViewModels
+            {
+                Categories = _dbContext.CateGories.ToList()
+            };
+            return View(viewModel);
+        }
 
         // GET: Courses
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CourseViewModels viewModels)
         {
             if(!ModelState.IsValid)
