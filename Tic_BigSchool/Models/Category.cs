@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using Tic_BigSchool.Models;
 
-namespace BigSchool.Models
+namespace TiC_BigSchool.Models
 {
     public class CateGory
     {

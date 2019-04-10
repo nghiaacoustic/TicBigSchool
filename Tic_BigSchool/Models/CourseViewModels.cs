@@ -1,4 +1,4 @@
-﻿using BigSchool.Models;
+﻿using TiC_BigSchool.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

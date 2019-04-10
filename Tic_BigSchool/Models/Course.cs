@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using Tic_BigSchool.Models;
 
-namespace BigSchool.Models
+namespace TiC_BigSchool.Models
 {
     public class Course
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public int Id { get; set; }
         public ApplicationUser Lecturer { get; set; }
         [Required]
