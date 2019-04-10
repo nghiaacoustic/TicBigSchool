@@ -10,8 +10,8 @@ namespace TiC_BigSchool.Models
 {
     public class Course
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key]
+   //     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+   //     [Key]
         public int Id { get; set; }
         public ApplicationUser Lecturer { get; set; }
         [Required]
